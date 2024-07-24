@@ -1,7 +1,7 @@
 const height = 500
 const width = 700
 const finance_data=[]
-async function dataParse(){
+function dataParse(){
     d3.csv("data/financial_risk_assessment.csv").then(function(data){
         for (var key in data){
             finance_data.push(data[key])
