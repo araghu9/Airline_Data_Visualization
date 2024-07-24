@@ -1,12 +1,14 @@
 const height = 500
 const width = 700
-function dataParse(){
+const finance_data=[]
+async function dataParse(){
     d3.csv("data/financial_risk_assessment.csv").then(function(data){
-        console.log(data)
-        return data;
+        for (var key in data){
+            finance_data.push(data[key])
+        }
     });
 }
-function axis(){
+function scene1(){
     var scaleX=d3.scaleLinear().domain([600,800]).range([0, width])
     var scaleY=d3.scaleLinear().domain([5000,50000]).range([height, 0])
     var svg = d3.select("svg").append("g").attr("transform","translate("+50+", "+50+")")
@@ -20,6 +22,8 @@ function axis(){
     
     console.log("hi")
 }
-//console.log(dataParse())
 
-document.addEventListener("load", axis())
+document.addEventListener("load", function(){
+    dataParse()
+    scene1()
+})
