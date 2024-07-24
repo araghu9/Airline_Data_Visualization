@@ -25,7 +25,7 @@ function scene1(){
     console.log("hi")
 }
 
-document.addEventListener("load", function(){
+document.addEventListener("load", function(event){
     dataParse()
     scene1()
 })
