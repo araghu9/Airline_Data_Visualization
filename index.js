@@ -1,7 +1,10 @@
 const height = 500
 const width = 700
 function dataParse(){
-    d3.csv("data/financial_risk_assessment.csv").then(function(data){return data;});
+    d3.csv("data/financial_risk_assessment.csv").then(function(data){
+        console.log(data)
+        return data;
+    });
 }
 function axis(){
     var scaleX=d3.scaleLinear().domain([600,800]).range([0, width])
