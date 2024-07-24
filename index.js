@@ -10,6 +10,7 @@ function dataParse(){
     });
 }
 function scene1(){
+    dataParse()
     console.log("start scene")
     var scaleX=d3.scaleLinear().domain([600,800]).range([0, width])
     var scaleY=d3.scaleLinear().domain([5000,50000]).range([height, 0])
@@ -25,7 +26,4 @@ function scene1(){
     console.log("hi")
 }
 
-document.addEventListener("load", function(event){
-    dataParse()
-    scene1()
-})
+document.addEventListener("load", scene1())
