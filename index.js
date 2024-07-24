@@ -2,6 +2,7 @@ const height = 500
 const width = 700
 const finance_data=[]
 function dataParse(){
+    console.log("start parse")
     d3.csv("data/financial_risk_assessment.csv").then(function(data){
         for (var key in data){
             finance_data.push(data[key])
@@ -9,6 +10,7 @@ function dataParse(){
     });
 }
 function scene1(){
+    console.log("start scene")
     var scaleX=d3.scaleLinear().domain([600,800]).range([0, width])
     var scaleY=d3.scaleLinear().domain([5000,50000]).range([height, 0])
     var svg = d3.select("svg").append("g").attr("transform","translate("+50+", "+50+")")
