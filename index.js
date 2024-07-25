@@ -5,11 +5,11 @@ function scene1(){
     d3.csv("data/financial_risk_assessment.csv").then(function(data){
         var scaleX=d3.scaleLinear().domain([600,800]).range([0, width])
         var scaleY=d3.scaleLinear().domain([5000,50000]).range([height, 0])
-        var tooltip=d3.select("svg").append("div").style("opacity", 0).attr("class", "tooltip").style("background-color", "white")
+        var tooltip=d3.select("#graph").append("div").style("opacity", 0).attr("class", "tooltip").style("background-color", "white")
         .style("border", "solid").style("padding", "5x")
         var mouseover=function(d){tooltip.style("opacity", 1)}
         var mousemove=function(event, d){
-            print(event)
+            console.log(event)
             tooltip.html("Credit Score: "+d["Credit Score"]+"<br>Loan Amount: "+d["Loan Amount"]+"<br>Previous Defaults: "+d["Previous Defaults"]+"<br>Risk Rating: "+d["Risk Rating"])
             .style("left", (event.pageX+90)+"px").style("top", event.pageY+"px")
         }
