@@ -1,5 +1,6 @@
 const height = 500
 const width = 700
+var idx=0
 
 function scene1(){
     d3.csv("data/financial_risk_assessment.csv").then(function(data){
@@ -62,6 +63,44 @@ function scene2(){
             d3.selectAll("."+d).transition().style("opacity", opacity==1?0:1)
         })
     });
+}
+
+function scene3(){
+    d3.csv("data/financial_risk_assessment.csv").then(function(data){
+        var marital=["Married", "Single", "Divorced", "Widowed"]
+        var colors=d3.scaleOrdinal().domain(marital).range(["#66c2a5", "#fc8d62","8da0cb","#e78ac3"])
+        var scaleX=d3.scaleLinear().domain([20000,120000]).range([0, width])
+        var scaleY=d3.scaleLinear().domain([600,800]).range([height,0])
+        d3.select("svg").append("g").attr("transform","translate("+50+", "+(height+50)+")").append("g").call(d3.axisBottom(scaleX))
+        d3.select("svg").append("g").attr("transform","translate("+50+", "+50+")").append("g").call(d3.axisLeft(scaleY))
+        d3.select("svg").append("g").attr("transform","translate("+50+", "+50+")").append("g").selectAll("dot").data(data).enter()
+        .append("circle").attr("class",function(d){return d["Marital Status"]}).attr("cx", function(d){return scaleX(Number(d["Income"]))})
+       .attr("cy", function(d){return scaleY(Number(d["Credit Score"]))})
+       .attr("r", function(d){return (1+Number(d["Number of Dependents"]));})
+       .style("fill", function(d){return colors(d["Marital Status"])})
+    
+        d3.select("svg").append("g").attr("transform","translate("+50+", "+(height+75)+")").selectAll("myLegend").data(education)
+        .enter().append("g").append("text").attr("x", function(d,i){return 30+i*100}).attr("y", 10).text(function(d){return d}).style("fill", function(d){return colors(d)})
+        .on("click", function(event){
+            d=document.elementFromPoint(event.pageX,event.pageY).textContent
+            opacity=d3.selectAll("."+d).style("opacity")
+            d3.selectAll("."+d).transition().style("opacity", opacity==1?0:1)
+        })
+    });
+}
+
+function nextScene(){
+    d3.select("svg").html=""
+    idx+=1
+    if (idx%3===0){
+        scene1()
+    }
+    else if (idx%3===1){
+        scene2()
+    }
+    else if (idx%3===2){
+        scene3()
+    }
 }
 
 document.addEventListener("load", scene1())
