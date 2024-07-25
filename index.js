@@ -141,29 +141,29 @@ function nextScene(){
     }
     idx+=1
     if (idx%3===0){
-        document.getElementById("info").innerText="This Narrative Visualization will explore a dataset with Financial Data. Specifically, we want to explore if different factors coupled<br>\
-            together leads increased risk profiles. The first chart we will explore is the one below. This one explores the relationship between<br>\
-            credit score and loan amounts. The size of the dots corresponds to the number of defaults the person has had. When we look at this data, we<br>\
-            can't see much. For this reason, we have increased viewing capability for the dots. Hover over any circles and see more details about that<br>\
+        document.getElementById("info").innerText="This Narrative Visualization will explore a dataset with Financial Data. Specifically, we want to explore if different factors coupled\
+            together leads increased risk profiles. The first chart we will explore is the one below. This one explores the relationship between\
+            credit score and loan amounts. The size of the dots corresponds to the number of defaults the person has had. When we look at this data, we\
+            can't see much. For this reason, we have increased viewing capability for the dots. Hover over any circles and see more details about that\
             point displayed below."
         scene1()
     }
     else if (idx%3===1){
-        document.getElementById("info").innerText="This chart illustrates the relationship between income and credit score. Using this chart and the previous one,<br>\
-        we can better understand the people at each point, seeing their incomes alongside those credit scores we saw. Furthermore, to add an extra level of detail<br>\
-        to the plot, we can filter on the level education the people in the dataset have had. The points are color coded to the color of the level of education they<br>\
-        have. Beyond that, to isolate these points, if you click on the specific level of education, the points will be toggled on/off. With this capability, we can<br>\
-        see how education has impacted income and the credit score as well. As an example, we can see Bachelor's degree holders tended to have higher income and portentially<br>\
+        document.getElementById("info").innerText="This chart illustrates the relationship between income and credit score. Using this chart and the previous one,\
+        we can better understand the people at each point, seeing their incomes alongside those credit scores we saw. Furthermore, to add an extra level of detail\
+        to the plot, we can filter on the level education the people in the dataset have had. The points are color coded to the color of the level of education they\
+        have. Beyond that, to isolate these points, if you click on the specific level of education, the points will be toggled on/off. With this capability, we can\
+        see how education has impacted income and the credit score as well. As an example, we can see Bachelor's degree holders tended to have higher income and portentially\
         better credit at those higher incomes than some other levels of education."
         scene2()
     }
     else if (idx%3===2){
-        document.getElementById("info").innerText="This chart is similar to the one previous one. This is showing the relationship between income and credit score as well,<br>\
-        and allows filtering of color coded points. But there are a few differences to point out here that offer a new dimension to the data and overall understanding of <br>\
-        factors that impact measures of risk like credit scores and risk ratings. One major difference is that the color fitler this time doesn't refer to education level,<br>\
-        but to marital status. This will allow us to filter based on marital status and understand the familial situation behind the person in question and might affect their<br>\
-        score with their income. The other major difference here is how the size of each circle in the plot corresponds to the number of dependants the person has, ranging from<br>\
-        0 to 4. This, similar to marital status, can affect credit score with the income of the person and offers a new dimension to explore, such as how maybe more widowers seem<br>\
+        document.getElementById("info").innerText="This chart is similar to the one previous one. This is showing the relationship between income and credit score as well,\
+        and allows filtering of color coded points. But there are a few differences to point out here that offer a new dimension to the data and overall understanding of \
+        factors that impact measures of risk like credit scores and risk ratings. One major difference is that the color fitler this time doesn't refer to education level,\
+        but to marital status. This will allow us to filter based on marital status and understand the familial situation behind the person in question and might affect their\
+        score with their income. The other major difference here is how the size of each circle in the plot corresponds to the number of dependants the person has, ranging from\
+        0 to 4. This, similar to marital status, can affect credit score with the income of the person and offers a new dimension to explore, such as how maybe more widowers seem\
         seem to have lower credit and higher income regardless of dependants which we might not see in other groups."
         scene3()
     }
