@@ -6,7 +6,7 @@ function scene1(){
     d3.csv("data/financial_risk_assessment.csv").then(function(data){
         var scaleX=d3.scaleLinear().domain([600,800]).range([0, width])
         var scaleY=d3.scaleLinear().domain([5000,50000]).range([height, 0])
-        var tooltip=d3.select("#graph").append("div").style("opacity", 0).attr("class", "tooltip").style("background-color", "white")
+        var tooltip=d3.select("#graph").append("div").attr("id", "tooltip1").style("opacity", 0).attr("class", "tooltip").style("background-color", "white")
         .style("border", "solid").style("padding", "5x")
         var mouseover=function(d){tooltip.style("opacity", 1)}
         var mousemove=function(event, d){
@@ -24,6 +24,19 @@ function scene1(){
        .attr("cy", function(d){return scaleY(d["Loan Amount"])})
        .attr("r", function(d){return (1+Number(d["Previous Defaults"]));})
         .on("mouseover", mouseover).on("mousemove", mousemove).on("mouseleave", mouseleave)
+
+        const annotation=[{
+            note: {
+                label: "Despite having 3 previous defaults and large loan, this person is low risk, maybe due to their high credit score",
+                title: "A interesting datapoint in the set"
+            },
+            x: 651,
+            y: 47.30000000000001,
+            dy: 47.30000000000001,
+            dx: 651
+        }]
+        const makeAnnotations = d3.annotation().annotations(annotation)
+        d3.select("svg").append("g").attr("class", "annotation-group").call(makeAnnotations)
     });
 }
 
@@ -62,6 +75,19 @@ function scene2(){
             opacity=d3.selectAll("."+d).style("opacity")
             d3.selectAll("."+d).transition().style("opacity", opacity==1?0:1)
         })
+
+        const annotation=[{
+            note: {
+                label: "Despite having 3 previous defaults and large loan, this person is low risk, maybe due to their high credit score",
+                title: "A interesting datapoint in the set"
+            },
+            x: 651,
+            y: 47.30000000000001,
+            dy: 47.30000000000001,
+            dx: 651
+        }]
+        const makeAnnotations = d3.annotation().annotations(annotation)
+        d3.select("svg").append("g").attr("class", "annotation-group").call(makeAnnotations)
     });
 }
 
@@ -79,18 +105,34 @@ function scene3(){
        .attr("r", function(d){return (1+Number(d["Number of Dependents"]));})
        .style("fill", function(d){return colors(d["Marital Status"])})
     
-        d3.select("svg").append("g").attr("transform","translate("+50+", "+(height+75)+")").selectAll("myLegend").data(education)
+        d3.select("svg").append("g").attr("transform","translate("+50+", "+(height+75)+")").selectAll("myLegend").data(marital)
         .enter().append("g").append("text").attr("x", function(d,i){return 30+i*100}).attr("y", 10).text(function(d){return d}).style("fill", function(d){return colors(d)})
         .on("click", function(event){
             d=document.elementFromPoint(event.pageX,event.pageY).textContent
             opacity=d3.selectAll("."+d).style("opacity")
             d3.selectAll("."+d).transition().style("opacity", opacity==1?0:1)
         })
+
+        const annotation=[{
+            note: {
+                label: "Despite having 3 previous defaults and large loan, this person is low risk, maybe due to their high credit score",
+                title: "A interesting datapoint in the set"
+            },
+            x: 651,
+            y: 47.30000000000001,
+            dy: 47.30000000000001,
+            dx: 651
+        }]
+        const makeAnnotations = d3.annotation().annotations(annotation)
+        d3.select("svg").append("g").attr("class", "annotation-group").call(makeAnnotations)
     });
 }
 
 function nextScene(){
-    d3.select("svg").html=""
+    d3.select("svg").selectAll("*").remove()
+    if (idx%3===0){
+        document.getElementById("tooltip1").remove()
+    }
     idx+=1
     if (idx%3===0){
         scene1()
