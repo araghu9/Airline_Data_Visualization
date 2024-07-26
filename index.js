@@ -142,10 +142,10 @@ function nextScene(){
     idx+=1
     if (idx%3===0){
         document.getElementById("info").innerText="This Narrative Visualization will explore a dataset with Financial Data. Specifically, we want to explore if different factors coupled\
-            together leads increased risk profiles. The first chart we will explore is the one below. This one explores the relationship between\
+            together leads increased risk profiles. The first chart we will explore is the one above. This one explores the relationship between\
             credit score and loan amounts. The size of the dots corresponds to the number of defaults the person has had. When we look at this data, we\
             can't see much. For this reason, we have increased viewing capability for the dots. Hover over any circles and see more details about that\
-            point displayed below."
+            point displayed above."
         scene1()
     }
     else if (idx%3===1){
