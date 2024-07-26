@@ -162,9 +162,9 @@ function nextScene(){
         and allows filtering of color coded points. But there are a few differences to point out here that offer a new dimension to the data and overall understanding of \
         factors that impact measures of risk like credit scores and risk ratings. One major difference is that the color filter this time doesn't refer to education level,\
         but to marital status. This will allow us to filter based on marital status and understand the familial situation behind the person in question and might affect their\
-        score with their income. The other major difference here is how the size of each circle in the plot corresponds to the number of dependants the person has, ranging from\
+        score with their income. The other major difference here is how the size of each circle in the plot corresponds to the number of dependents the person has, ranging from\
         0 to 4. This, similar to marital status, can affect credit score with the income of the person and offers a new dimension to explore, such as how maybe more widowers seem\
-        seem to have lower credit and higher income regardless of dependants which we might not see in other groups. NOTE: If the selection does not work please increase the size of the window."
+        seem to have lower credit and higher income regardless of dependents which we might not see in other groups. NOTE: If the selection does not work please increase the size of the window."
         scene3()
     }
 }
