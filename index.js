@@ -154,7 +154,7 @@ function nextScene(){
         to the plot, we can filter on the level education the people in the dataset have had. The points are color coded to the color of the level of education they\
         have. Beyond that, to isolate these points, if you click on the specific level of education, the points will be toggled on/off. With this capability, we can\
         see how education has impacted income and the credit score as well. As an example, we can see Bachelor's degree holders tended to have higher income and portentially\
-        better credit at those higher incomes than some other levels of education."
+        better credit at those higher incomes than some other levels of education. NOTE: If the selection does not work please increase the size of the window."
         scene2()
     }
     else if (idx%3===2){
@@ -164,7 +164,7 @@ function nextScene(){
         but to marital status. This will allow us to filter based on marital status and understand the familial situation behind the person in question and might affect their\
         score with their income. The other major difference here is how the size of each circle in the plot corresponds to the number of dependants the person has, ranging from\
         0 to 4. This, similar to marital status, can affect credit score with the income of the person and offers a new dimension to explore, such as how maybe more widowers seem\
-        seem to have lower credit and higher income regardless of dependants which we might not see in other groups."
+        seem to have lower credit and higher income regardless of dependants which we might not see in other groups. NOTE: If the selection does not work please increase the size of the window."
         scene3()
     }
 }
