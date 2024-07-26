@@ -1,8 +1,12 @@
 const height = 500
 const width = 700
 var idx=0
-
+// general scatterplot inspiration sources:
+// https://d3-graph-gallery.com/graph/scatter_basic.html
+// https://d3-graph-gallery.com/graph/custom_axis.html
+// Annotation inspiration source: https://d3-annotation.susielu.com/#examples
 function scene1(){
+    // For tooltip: https://d3-graph-gallery.com/graph/scatter_tooltip.html
     d3.csv("data/financial_risk_assessment.csv").then(function(data){
         var scaleX=d3.scaleLinear().domain([600,800]).range([0, width])
         var scaleY=d3.scaleLinear().domain([5000,50000]).range([height, 0])
@@ -42,6 +46,7 @@ function scene1(){
     });
 }
 
+//Inspiration for both scene2 and scene3 legends: https://d3-graph-gallery.com/graph/connectedscatter_legend.html
 function scene2(){
     d3.csv("data/financial_risk_assessment.csv").then(function(data){
         var education=["Bachelor's", "High School", "Master's", "PhD"]
